@@ -1,0 +1,338 @@
+SELECT SUM(E.SAL) AS SUM_OF_SAL
+, AVG(E.SAL) AS AVG_OF_SAL
+FROM EMP E;
+
+SELECT DISTINCT DEPTNO
+FROM EMP;
+
+SELECT DISTINCT SAL
+FROM EMP;
+
+SELECT MAX(SAL) AS MAX_SAL
+	 , MIN(SAL) AS MIN_SAL
+	 , ROUND( MAX(SAL)/MIN(SAL), 1) AS MAX_MIN_SAL
+FROM EMP
+WHERE DEPTNO = 20;
+
+SELECT COUNT(EMPNO)
+	 , COUNT(COMM)
+FROM EMP e ;
+
+SELECT COUNT(*)
+FROM EMP e 
+WHERE DEPTNO = 30;
+
+SELECT count(DISTINCT sal)
+	 , count(ALL sal)
+	 , count(sal)
+FROM EMP e ;
+
+SELECT count(ename)
+FROM EMP e
+WHERE nvl(comm, 0) > 0;
+
+SELECT avg(sal), '10' AS dno
+FROM EMP e 
+WHERE DEPTNO = 10
+UNION ALL
+SELECT avg(sal), '20' AS dno
+FROM EMP e 
+WHERE DEPTNO = 20
+UNION ALL
+SELECT avg(sal), '30' AS dno
+FROM EMP e 
+WHERE DEPTNO = 30
+;
+
+SELECT deptno
+	 , count(SAL)
+	 , avg(sal)
+	 , max(sal)
+	 , min(sal)
+	 , sum(sal)
+FROM EMP e
+GROUP BY DEPTNO
+ORDER BY DEPTNO
+;
+
+SELECT deptno, JOB 
+	 , count(SAL)
+	 , avg(sal)
+	 , max(sal)
+	 , min(sal)
+	 , sum(sal)
+FROM EMP e
+GROUP BY DEPTNO, JOB
+ORDER BY DEPTNO, JOB
+;
+
+SELECT *
+FROM emp e, dept d
+WHERE e.ENAME = 'smith'
+ORDER BY e.EMPNO 
+;
+
+SELECT E.EMPNO
+		, E.HIREDATE 
+		, D.DNAME 
+		, E.SAL 
+FROM emp e JOIN DEPT d 
+ON e.DEPTNO = d.DEPTNO 
+;
+
+SELECT e.EMPNO
+		, TO_CHAR(E.HIREDATE, 'YYYY-MM-DD') AS HIREDT
+		, e.ENAME 
+		, d.DEPTNO 
+		, d.LOC
+FROM emp e
+	, dept d
+	WHERE e.DEPTNO = d.DEPTNO
+	ORDER BY d.DEPTNO , e.EMPNO 
+;
+
+SELECT e.EMPNO
+		, TO_CHAR(E.HIREDATE, 'YYYY-MM-DD') AS HIREDT
+		, e.ENAME 
+		, d.DEPTNO 
+		, d.LOC
+		, E.SAL 
+FROM emp e
+	, dept d
+	WHERE e.DEPTNO = d.DEPTNO AND E.SAL < 2000
+	ORDER BY E.SAL DESC  
+;
+
+
+SELECT D.DNAME AS DNAME, E.JOB AS JOB
+		, ROUND(AVG(E.SAL),0) AS AVG_SAL
+		, SUM(E.SAL) AS SUM_SAL
+		, MAX(E.SAL) AS MAX_SAL
+		, MIN(E.SAL) AS MIN_SAL
+		, COUNT(E.SAL) AS COUNT_SAL
+FROM EMP e 
+	, DEPT d 
+	WHERE E.DEPTNO = D.DEPTNO AND E.SAL < 2000
+	GROUP BY D.DNAME, E.JOB
+ 	-- ORDER BY SUM_SAL DESC
+	;
+
+
+SELECT E.ENAME
+		, E.DEPTNO
+		, E.SAL
+		, E.JOB 
+		, S.GRADE
+FROM EMP e, SCOTT.SALGRADE S
+WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL 
+ORDER BY S.GRADE DESC
+;
+
+SELECT *
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO 
+;
+
+SELECT e1.EMPNO AS emp_no
+	, e1.ENAME AS emp_name
+	, e2.mgr AS mgr_no
+	, e2.ENAME AS mgr_name
+FROM EMP e1, EMP e2
+WHERE E1.EMPNO = E2.MGR
+;
+
+SELECT * FROM emp
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM EMP e1, EMP e2
+WHERE e1.MGR = e2.EMPNO 
+
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM emp e1, emp e2
+WHERE e1.mgr = e2.EMPNO(+)
+;
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM emp e1 LEFT OUTER JOIN emp e2
+			ON (e1.mgr = e2.empno)
+;
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM emp e1, emp e2
+WHERE e1.mgr(+) = e2.EMPNO
+;
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM emp e1 FULL OUTER JOIN emp e2
+	ON e1.mgr = e2.EMPNO 
+;
+
+SELECT e1.EMPNO 
+	, e1.ENAME 
+	, e1.MGR
+	, e2.empno AS mgr_emp
+	, e2.ename AS mgr_name
+FROM EMP e1 FULL OUTER JOIN emp e2
+		ON e1.mgr = e2.EMPNO 
+ORDER BY e1.EMPNO 
+;
+
+
+-- EMP, DEPT, SALGRADE, SELF-JOIN EMP 
+-- 4개 테이블을 활용하여 값을 출력
+SELECT D.DEPTNO
+	, D.DNAME 
+	, E1.EMPNO 
+	, E1.ENAME
+	, E1.MGR
+	, E1.SAL
+	, S.HISAL 
+	, S.LOSAL 
+	, S.GRADE 
+	, E2.EMPNO AS MGR_NO
+	, E2.ENAME AS MGR_NAME
+FROM EMP E1,
+	, DEPT D
+	, SALGRADE S
+	, EMP E2
+WHERE E1.DEPTNO(+) = D.DEPTNO
+	AND E1.SAL BETWEEN S.LOSAL AND S.HISAL
+	AND E1.MGR = E2.EMPNO ;
+
+SELECT E1.EMPNO 
+	, E1.ENAME
+	, E1.MGR
+	, E1.SAL
+	, S.HISAL 
+	, S.LOSAL 
+	, S.GRADE 
+FROM emp E1, SCOTT.SALGRADE s
+WHERE E1.sal BETWEEN s.LOSAL(+) AND s.HISAL 
+;
+
+
+
+SELECT E1.EMPNO 
+	, E1.ENAME
+	, E1.MGR
+	, E1.SAL
+	, E2.EMPNO AS MGR_NO
+	, E2.ENAME AS MGR_NAME
+	FROM EMP E1, EMP E2
+	WHERE E1.MGR = E2.EMPNO(+)
+;
+
+-- 표준 SQL
+-- EMP E1, DEPT D, SALGRADE S, EMP E2
+SELECT D.DEPTNO
+	, D.DNAME 
+	, E1.EMPNO 
+	, E1.ENAME
+	, E1.MGR
+	, E1.SAL
+	, S.HISAL 
+	, S.LOSAL 
+	, S.GRADE 
+	, E2.EMPNO AS MGR_NO
+	, E2.ENAME AS MGR_NAME
+FROM EMP E1 RIGHT JOIN DEPT D 
+		ON E1.DEPTNO = D.DEPTNO 
+	LEFT OUTER JOIN SCOTT.SALGRADE S
+		ON (E1.SAL>= S.LOSAL AND E1.SAL <=S.HISAL)
+	LEFT OUTER JOIN EMP E2
+		ON (E1.MGR = E2.EMPNO)
+;
+
+
+-- 단일행 서브 쿼리 - 쿼리 안에 쿼리 문장을 사용
+-- SELECT 쿼리의 결과는 --> 2차원 테이블에 불과, 1개의 값 출력
+
+SELECT SAL
+	FROM EMP E
+	WHERE E.ENAME ='SMITH'
+;
+
+SELECT SAL
+FROM EMP e
+WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME='SMITH');
+
+SELECT *
+FROM EMP e , DEPT d 
+WHERE E.DEPTNO = 20
+AND E.SAL > (SELECT AVG(SAL) FROM EMP)
+;
+
+SELECT AVG(SAL) FROM EMP;
+
+
+-- 다중행 서브 쿼리 - 쿼리 안에 쿼리 문장을 사용
+-- SELECT 쿼리의 결과는 --> 2개 이상의 값이 값으로된 테이블
+SELECT DEPTNO, ENAME, SAL
+FROM EMP e 
+WHERE SAL IN(SELECT AVG(SAL)
+				FROM EMP
+				GROUP BY DEPTNO);
+			
+SELECT *
+FROM EMP e
+WHERE SAL = ANY(SELECT MAX(SAL)
+					FROM EMP
+					GROUP BY DEPTNO)
+;
+					
+				
+-- 다중열 서브 쿼리
+-- 서브 쿼리 결과가 두 개 이상의 컬럼으로 구성된 테이블 값
+SELECT *
+FROM EMP e
+where(deptno, sal) IN (SELECT deptno, max(SAL)
+						FROM EMP
+						GROUP BY DEPTNO)
+;
+
+-- FROM절에 사용하는 서브쿼리
+SELECT *
+FROM (SELECT * FROM emp WHERE deptno = 30) A
+	,(SELECT * FROM DEPT) B
+	WHERE A.deptno = B.deptno
+;
+
+-- WITH절(구문) 사용 - 편리한 가상 테이블로 활용
+WITH E AS (SELECT * FROM emp WHERE deptno = 20)
+   , D AS (SELECT * FROM dept)
+   , S AS (SELECT * FROM SCOTT.SALGRADE)
+SELECT E.ename
+	, D.dname
+	, D.loc
+	, E.SAL
+FROM E, D, S
+WHERE E.DEPTNO = D.DEPTNO
+	AND E.SAL BETWEEN S.LOSAL AND S.HISAL
+;
+
+
+CREATE TABLE DEPT_TEMP
+	AS SELECT * FROM DEPT;
+
+COMMIT; -- TO CONFIRM IF ANY CHANGES ON DB
