@@ -80,10 +80,11 @@ CREATE TABLE EMP_CERTIFICATE(
 - 개발 일자 : 2023.03.24 ~ 종료시 까지
 
 ## 실행결과
-
+- 1. 직원정보조회(수정불가)
 <img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/1.%EC%A7%81%EC%9B%90%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C.png?raw=true">
 
-
+- 2. 직원정보조회(수정가능)
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/2.%EC%A7%81%EC%9B%90%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C2.png?raw=true">
 
 # Reference
 ​
