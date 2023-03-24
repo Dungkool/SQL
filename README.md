@@ -8,7 +8,7 @@
 
 
 ### 프로젝트 구조
-<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT/UML.jpg" >
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/UML.jpg?raw=true" >
 
 ​
 ### DB 구조
