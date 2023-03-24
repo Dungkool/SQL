@@ -80,11 +80,35 @@ CREATE TABLE EMP_CERTIFICATE(
 - 개발 일자 : 2023.03.24 ~ 종료시 까지
 
 ## 실행결과
-- 1. 직원정보조회(수정불가)
+- 1. 직원정보조회(기본)
 <img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/1.%EC%A7%81%EC%9B%90%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C.png?raw=true">
 
-- 2. 직원정보조회(수정가능)
+- 2. 직원정보조회2(수정 전)
 <img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/2.%EC%A7%81%EC%9B%90%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C2.png?raw=true">
+
+- 3. 직원정보조회2(수정 후)
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/03.%EC%A7%81%EC%9B%90%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4%EC%88%98%EC%A0%95.png?raw=true">
+
+- 4. 직원근무이력
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/04.%EC%A7%81%EC%9B%90%EA%B7%BC%EB%AC%B4%EC%9D%B4%EB%A0%A5.png?raw=true">
+
+- 5. 직원연수내역
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/06.%EC%A7%81%EC%9B%90%EC%9E%90%EA%B2%A9%EB%82%B4%EC%97%AD.png?raw=true">
+
+- 6. 직원자격내역
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/06.%EC%A7%81%EC%9B%90%EC%9E%90%EA%B2%A9%EB%82%B4%EC%97%AD.png?raw=true">
+
+- 7. 직원 직무점수 조회
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/07.%EC%A7%81%EC%9B%90%EC%A7%81%EB%AC%B4%EC%A0%90%EC%88%98%EC%A1%B0%ED%9A%8C.png?raw=true">
+
+- 8. 직무별 POOL(UB)
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/08.%EC%A7%81%EB%AC%B4%EB%B3%84POOL(UB).png?raw=true">
+
+- 9. 직무별 POOL(IT)
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/09.%EC%A7%81%EB%AC%B4%EB%B3%84POOL(IT).png?raw=true">
+
+- 10. 직무별 POOL(BIZ)
+<img width="800" src="https://github.com/Dungkool/SQL/blob/assignment/MINI%20PROJECT(5%EC%A1%B0)/%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC/10.%EC%A7%81%EB%AC%B4%EB%B3%84POOL(BIZ).png?raw=true">
 
 # Reference
 ​
